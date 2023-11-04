@@ -1,4 +1,5 @@
 "use client";
+import { Header } from "@/components/header/header";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useUserStore } from "../store/store";
@@ -11,5 +12,10 @@ export default function Home() {
       router.push("/login");
     }
   }, []);
-  return <main className="bg-red-300">{/* <Exemplo /> */}</main>;
+  return (
+    <>
+      <Header />
+      <main className="bg-red-300 h-full m-auto max-w-6xl"></main>
+    </>
+  );
 }
