@@ -2,21 +2,30 @@
 import { Input } from "@/components/input/Input";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { LoginData, loginSchema } from "../interfaces/interfaces";
+import { LoginData, User, loginSchema } from "../interfaces/interfaces";
+import { useUserStore } from "../store/store";
 
 const Login = () => {
+  const { setUser } = useUserStore();
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginData>({
     resolver: zodResolver(loginSchema),
-
     mode: "onChange",
   });
   const handleLogin = (data: LoginData) => {
     console.log(data);
+    //AQUI MANDA LOGIN E RETORNA AS INFOS DO USUÁRIO PARA COMPLEMENTAR O STATE
+    const userToStore: User = { ...data, isAdmin: false };
+    setUser(userToStore);
+    setTimeout(() => {
+      router.push("/");
+    }, 1000);
   };
   return (
     <main className="bg-gray-200 h-screen w-full flex items-center justify-center">
