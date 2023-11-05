@@ -2,11 +2,11 @@
 import { Input } from "@/components/input/Input";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Cookie from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { LoginData, User, loginSchema } from "../interfaces/interfaces";
+import { LoginData, User, loginSchema } from "../interfaces/login.interfaces";
 import { useUserStore } from "../store/store";
-import Cookie from "js-cookie";
 
 const Login = () => {
   const { setUser } = useUserStore();

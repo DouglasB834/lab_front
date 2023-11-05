@@ -4,7 +4,7 @@ import { Input } from "@/components/input/Input";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { RegisterData, registerSchema } from "../interfaces/interfaces";
+import { RegisterData, registerSchema } from "../interfaces/login.interfaces";
 
 export default function Cadastrar() {
   const {
