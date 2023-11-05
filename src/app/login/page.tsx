@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { LoginData, User, loginSchema } from "../interfaces/interfaces";
 import { useUserStore } from "../store/store";
+import Cookie from "js-cookie";
 
 const Login = () => {
   const { setUser } = useUserStore();
@@ -19,9 +20,12 @@ const Login = () => {
     mode: "onChange",
   });
   const handleLogin = (data: LoginData) => {
-    console.log(data);
     //AQUI MANDA LOGIN E RETORNA AS INFOS DO USUÁRIO PARA COMPLEMENTAR O STATE
     const userToStore: User = { ...data, isAdmin: false };
+
+    Cookie.set("user", userToStore.username, { expires: 1 });
+
+    console.log(data);
     setUser(userToStore);
     setTimeout(() => {
       router.push("/");
