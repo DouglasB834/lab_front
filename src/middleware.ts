@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import Cookie from "js-cookie";
 
 export default function middleware(req: NextRequest) {
   const userName = req.cookies.get("user")?.value;

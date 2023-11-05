@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const genreEnum = ["MASCULINO", "FEMININO"] as const;
+export const genreEnum = ["MASCULINO", "FEMININO"] as const;
 
 export const createPacientSchema = z.object({
   name: z.string().min(1, "o nome deve ser preenchido"),
