@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <MenuAdmin />
-      <main className="h-full m-auto max-w-6xl w-11/12 py-8 flex justify-center flex-wrap">
+      <main className="m-auto mt-20 max-w-6xl w-11/12 py-8 flex justify-center flex-wrap">
         <CardMenu />
       </main>
     </>

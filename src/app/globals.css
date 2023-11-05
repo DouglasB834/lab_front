@@ -41,7 +41,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground text-sm;
+    @apply bg-background text-foreground text-sm max-h-screen;
   }
   input {
     @apply border-none outline-none rounded-lg pl-3 h-10;
