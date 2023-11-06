@@ -2,6 +2,7 @@
 import { MenuAdmin } from "@/components/aside/menuAdmin";
 import { CardMenu } from "@/components/card/cardMenu";
 
+import { CreatePacient } from "@/components/pacient/createPacient";
 import { useUserStore } from "../store/store";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <MenuAdmin />
       <main className="m-auto mt-20 max-w-6xl w-11/12 py-8 flex justify-center flex-wrap">
         <CardMenu />
+        <CreatePacient />
       </main>
     </>
   );
