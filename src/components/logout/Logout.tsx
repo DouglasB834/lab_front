@@ -2,6 +2,7 @@
 import { useUserStore } from "@/app/store/store";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "../ui/button";
+import Cookie from "js-cookie";
 
 export const Logout = () => {
   const pathname = usePathname();
@@ -9,6 +10,7 @@ export const Logout = () => {
   const { setUser } = useUserStore();
 
   const logout = () => {
+    Cookie.remove("user");
     setUser({ username: "", password: "", isAdmin: false });
     router.push("/login");
   };
