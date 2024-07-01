@@ -4,6 +4,7 @@ import { CreatePacient } from "../pacient/createPacient";
 import { Button } from "../ui/button";
 export const CardMenu = () => {
   const [component, setComponent] = useState("");
+
   const components = {
     coleta: <Button>Coleta legal</Button>,
     paciente: <CreatePacient />,

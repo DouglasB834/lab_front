@@ -16,10 +16,7 @@ export const Logout = () => {
   };
   return (
     pathname !== "/login" && (
-      <Button
-        onClick={logout}
-        className="absolute bottom-0 right-12 bg-gray-500/50"
-      >
+      <Button onClick={logout} className=" bg-gray-500/50">
         Logout
       </Button>
     )

@@ -1,8 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
+import { useState } from "react";
+import { CadastrarAnalyst } from "../register-analyst/registerAnalyst";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
+import { Dialog } from "@radix-ui/react-dialog";
+import { DialogTrigger } from "../ui/dialog";
 
+//obção de uso
 const optionsMenu = [
   {
     newUse: (
@@ -47,6 +50,8 @@ const optionsMenu = [
 ];
 
 export const MenuAdmin = () => {
+  const [isRegister, setIsRegister] = useState(false);
+
   return (
     <aside className="absolute flex flex-col top-24 left-0 py-6 bg-blue-100 rounded-sm w-max">
       <div className="flex gap-2 items-center justify-center border-b pb-2 border-white ">
@@ -58,15 +63,17 @@ export const MenuAdmin = () => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <Button
-          about=""
-          className="hover:bg-blue-200 hover:text-gray-600 hover:scale-105 transition-all px-8 py-2 "
-          onClick={() => {
-            console.log("cadastrar novo user modal");
-          }}
-        >
-          Novo Usúario
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button
+              about="Register new user"
+              className="hover:bg-blue-200 hover:text-gray-600 hover:scale-105 transition-all px-8 py-2 "
+              onClick={() => setIsRegister(!isRegister)}
+            >
+              Novo Usúario
+            </Button>
+          </DialogTrigger>
+        </Dialog>
         <Button
           about=""
           className="hover:bg-blue-200 hover:text-gray-600 hover:scale-105 transition-all px-8 py-2 "
@@ -95,6 +102,7 @@ export const MenuAdmin = () => {
           Relatório
         </Button>
       </div>
+      <CadastrarAnalyst isRegister={isRegister} setIsRegister={setIsRegister} />
     </aside>
   );
 };

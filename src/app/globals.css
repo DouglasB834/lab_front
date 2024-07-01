@@ -1,6 +1,6 @@
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind base;
 
 @layer base {
   :root {
@@ -38,12 +38,29 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border: 1px solid var(--border); /* ou a largura de borda desejada */
   }
+
   body {
-    @apply bg-background text-foreground text-sm max-h-screen;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: var(--text-sm);
+    max-height: 100vh;
   }
+
   input {
-    @apply border-none outline-none rounded-lg pl-3 h-10;
+    border: none;
+    outline: none;
+    border-radius: var(--radius);
+    padding-left: 0.75rem; /* ou o espaçamento desejado */
+    height: 2.5rem; /* ou a altura desejada */
   }
 }
+
+@layer components {
+
+  .hover{
+    @apply  hover:scale-100 hover:opacity-75 cursor-pointer
+  }
+
+} 

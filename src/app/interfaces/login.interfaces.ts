@@ -1,11 +1,12 @@
 import { z } from "zod";
 
 const userSchema = z.object({
-  username: z.string().min(1, "usuário deve ser informado").max(50),
-  password: z.string().min(1, "a senha deve ser informada").max(50),
+  username: z.string().min(3, "usuário deve ser informado").max(50),
+  password: z.string().min(6, "senha minimo 6 caracter").max(50),
   isAdmin: z.boolean().default(false),
 });
 export const loginSchema = userSchema.omit({ isAdmin: true });
+
 export const registerSchema = loginSchema
   .extend({
     confirmPassword: z.string().min(1, "a senha deve ser informada").max(50),
